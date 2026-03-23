@@ -43,19 +43,19 @@ This project focuses on analyzing and exploring E-Learning data, including prepr
 
 Shows the distribution of questionnaire responses.
 
-![問卷測試數值分布](assets/Questionnaire_Testing_Value_Counts.jpg)
+![問卷測試數值分布](assets/questionnaire_testing_value_counts.jpg)
 
 ### 因子負載量熱圖 | Factor Loading Heat Map
 
 Displays each item's contribution to factors.
 
-![因子負載量熱圖](assets/Factor_Loading_Heat_Map.jpg)
+![因子負載量熱圖](assets/factor_loading_heat_map.jpg)
 
 ### 相關矩陣熱圖 | Correlation Matrix Heat Map
 
 Shows the strength of correlations between variables.
 
-![相關矩陣熱圖](assets/Correlation_Matrix_Heat_Map.jpg)
+![相關矩陣熱圖](assets/correlation_matrix_heat_map.jpg)
 
 ---
 
