@@ -8,13 +8,13 @@ Please note: This project is intended solely for educational and personal study 
 
 ## Research Workflow Diagrom
 
-![Research Workflow Diagram](assets/Machine%20Learning%20on%20fMRI%20Research%20Workflow%20Diagram%20new.drawio.svg)
+![Research Workflow Diagram](assets/machine-learning-on-fmri-research-workflow-diagram-v4.drawio.svg)
 
 ## Research result of ROI
 
-![result_1](assets/images/Group-ICA%2520with%2520dictlearn-01.png)
-![result_2](assets/images/Group-ICA%2520with%2520dictlearn-02.png)
-![result_3](assets/images/Group-ICA%2520with%2520dictlearn-03.png)
+![result_1](assets/images/group-ica%20with%20dictlearn-01.png)
+![result_2](assets/images/group-ica%20with%20dictlearn-02.png)
+![result_3](assets/images/group-ica%20with%20dictlearn-03.png)
 
 ## Research result of compair
 
