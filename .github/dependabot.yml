@@ -9,3 +9,8 @@ updates:
     directory: "/binance-multi-assets-singal-agent"
     schedule:
       interval: "weekly"
+
+  - package-ecosystem: "npm"
+    directory: "/binance-multi-assets-singal-agent/frontend"
+    schedule:
+      interval: "weekly"
