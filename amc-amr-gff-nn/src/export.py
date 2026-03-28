@@ -5,8 +5,43 @@ import sys
 from typing import Tuple
 
 # 假設您的模型都定義在 models 文件夾下
-import models 
-from models.exporter import ModelExporter # 引用之前寫好的類
+import models
+
+# Try to import a reusable ModelExporter from models package; if missing,
+# provide a lightweight fallback here so `src/export.py` stays runnable.
+try:
+    from models.exporter import ModelExporter  # 引用之前寫好的類
+except Exception:
+    import torch
+    from typing import Sequence, Tuple
+
+    class ModelExporter:
+        """Fallback ONNX exporter if models.exporter is not available."""
+
+        def __init__(self, model, device: str = 'cpu'):
+            self.model = model.to(device)
+            self.device = device
+
+        def _make_dummy_inputs(self, input_shapes: Sequence[Tuple[int, ...]]):
+            return [torch.randn(shape, device=self.device) for shape in input_shapes]
+
+        def export_onnx(self, file_path: str, input_shapes: Sequence[Tuple[int, ...]], opset_version: int = 13):
+            self.model.eval()
+            dummy_inputs = self._make_dummy_inputs(input_shapes)
+            example_inputs = tuple(dummy_inputs) if len(dummy_inputs) > 1 else dummy_inputs[0]
+            input_names = [f'input{i}' for i in range(len(dummy_inputs))] if len(dummy_inputs) > 1 else ['input']
+            dynamic_axes = {name: {0: 'batch'} for name in input_names}
+            output_names = ['logits', 'weights'] if hasattr(self.model, 'head') else ['output']
+
+            torch.onnx.export(
+                self.model,
+                example_inputs,
+                file_path,
+                input_names=input_names,
+                output_names=output_names,
+                dynamic_axes=dynamic_axes,
+                opset_version=opset_version,
+            )
 
 def get_args():
     parser = argparse.ArgumentParser(description="AMC-AMR 模型通用 ONNX 導出工具")
