@@ -115,6 +115,8 @@ python src/run.py deep_analysis --weights model.pth --data RML2016.10a_dict.pkl
 - `confused_categories_high_snr.png` — 高 SNR 易混淆類別柱狀圖
 - `tsne_visualization.png` — t-SNE 特徵空間可視化（低 / 高 SNR）
 
+![per_class_acc_vs_snr](assets/acc_vs_snr_type_all.png)
+
 ---
 
 ### `ablation.py` — 模態消融實驗
@@ -128,6 +130,8 @@ python src/run.py ablation --weights model.pth --data RML2016.10a_dict.pkl
 - `ablation_pairwise_modality.png` — 成對模態消融 Accuracy vs SNR
 - `ablation_confused_categories.png` — 高 SNR 易混淆類別對比
 
+![]
+
 ---
 
 ### `gating_weights.py` — 門控網絡權重分析
@@ -139,8 +143,11 @@ python src/run.py gating --weights model.pth --data RML2016.10a_dict.pkl
 **輸出：**
 - `gating_weights_vs_snr.png` — IQ / STFT / S-TD 模態重要性 vs SNR
 
+![gating_weights_vs_snr](assets/gating_weights_vs_snr.png)
+
 ---
 
+### TODO:
 ### `cnn_vs_transformer.py` — CNN vs Transformer 對比
 
 ```bash
@@ -148,8 +155,12 @@ python src/run.py compare --weights model.pth --data RML2016.10a_dict.pkl
 ```
 
 **輸出：**
-- `cnn_vs_transformer_accuracy.png` — 整體 Accuracy vs SNR 對比折線圖
-- `cnn_vs_transformer_overall.png` — 整體準確率柱狀圖
+- `gffnn_compare_acc.png` — 整體 Accuracy vs SNR 對比折線圖
+- `gffnn_compare_overall.png` — 整體準確率柱狀圖
+
+
+
+---
 
 （若 prefer module run）
 ```bash
