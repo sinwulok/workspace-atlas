@@ -156,8 +156,10 @@ python src/run.py compare --weights model.pth --data RML2016.10a_dict.pkl
 python -m src.run evaluate --weights ... --data ...
 ```
 
-## 輸出說明
 ---
+
+## 輸出說明
+
 - 所有圖表、可視化結果、CSV、與 logs 會儲存在 `--output-dir` 指定的目錄（預設 `outputs/`）。
 - 常見輸出檔例：
   - `confusion_matrix_counts.png`
@@ -170,7 +172,7 @@ python -m src.run evaluate --weights ... --data ...
   - `cnn_vs_transformer_accuracy.png`
 
 ### 程式化呼叫（當作 library 使用）
----
+
 如果你想在其他程式中直接使用模型或 pipeline，可以匯入 factory 與工具函式：
 ```python
 from src.models.factory import build_model
