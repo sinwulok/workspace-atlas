@@ -1,4 +1,4 @@
-name: Update README Project Overview # v3
+name: Update README Project Overview # v4
 
 permissions:
   contents: write
@@ -11,8 +11,12 @@ on:
       - '.github/scripts/**'
       - 'README.md'
   schedule:
-    - cron: '0 6 */3 * *'   # 每 3 天 UTC 06:00 執行一次
+    - cron: '0 6 */3 * *'  # Runs every 3 days at 06:00 UTC / 每 3 天 UTC 06:00 執行一次
   workflow_dispatch:
+
+concurrency:
+  group: update-readme-main
+  cancel-in-progress: true
 
 jobs:
   generate-readme:
@@ -29,14 +33,27 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Cache pip dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pyyaml
+          pip install --requirement .github/scripts/requirements.txt
+
+      - name: Check Python Environment
+        run: |
+          python --version
+          pip list
 
       - name: Run README generator
         run: |
-          python .github/scripts/generate_readme.py
+          python .github/scripts/generate_readme.py || { echo 'README generation failed'; exit 1; }
 
       - name: Commit updated README (if any)
         uses: EndBug/add-and-commit@v9
