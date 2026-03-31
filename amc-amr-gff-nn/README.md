@@ -193,7 +193,7 @@ preds = predict_batch(model, dataset, device="cuda")
 
 ### 維護與開發建議
 
-- 將 CLI 的 subcommands 套用 unittest / pytest 測試，以確保 refactor 後 CLI 行為���變。
+- 將 CLI 的 subcommands 套用 unittest / pytest 測試，以確保 refactor 後 CLI 行為的改變。
 - 將 config（超參數）移到 YAML/JSON，並加入版本記錄，方便在實驗重現時載入 exact config。
 - 在模型 factory 與 config 之間標註相容性（哪個 model-name 需要哪些 config keys），減少使用錯誤。
 
