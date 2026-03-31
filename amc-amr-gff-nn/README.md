@@ -1,6 +1,34 @@
 # GFF Experiments — GatedFusionFormer 實驗套件
 
-> **說明**：原始 `AMR_GateFusionFormer_v8_clean.ipynb`（64 cells）
+> **說明**：原始 `AMR_GateFusionFormer_v8_clean.ipynb`（64 cells）Productionization
+
+---
+
+## 資料集
+
+本套件使用 [RadioML 2016.10a (RML2016.10a)](https://www.deepsig.ai/datasets)。
+下載後解壓，使用 `RML2016.10a_dict.pkl` 作為 `--data` 參數。
+
+---
+
+## 模型架構
+
+GatedFusionFormer NeuralNetwork 融合三種模態特徵：
+
+```
+IQ Signal  (2, T)   → Conv1d Embedding
+STFT Map   (1,32,T) → 2D Conv + Freq-Adaptive Pool
+S-TD Stats (2, T)   → Conv1d Embedding
+                           ↓
+              GatingNetwork (動態融合權重)
+                           ↓
+              FusionTransformerBlock × depth
+              (Conv Encoder + Multi-Head Attention)
+                           ↓
+                    Linear Classifier
+```
+
+詳見 [`model.py`](model.py)。
 
 ---
 
@@ -64,7 +92,7 @@ pip install torch torchvision timm scipy scikit-learn matplotlib seaborn tqdm pa
 
 ## 各實驗說明
 
-### `01_evaluate.py` — 基礎模型評估
+### `evaluate.py` — 基礎模型評估
 
 ```bash
 python 01_evaluate.py --weights model.pth --data RML2016.10a_dict.pkl
@@ -77,7 +105,7 @@ python 01_evaluate.py --weights model.pth --data RML2016.10a_dict.pkl
 
 ---
 
-### `02_deep_analysis.py` — 深度性能分析
+### `deep_analysis.py` — 深度性能分析
 
 ```bash
 python 02_deep_analysis.py --weights model.pth --data RML2016.10a_dict.pkl
@@ -90,7 +118,7 @@ python 02_deep_analysis.py --weights model.pth --data RML2016.10a_dict.pkl
 
 ---
 
-### `03_ablation.py` — 模態消融實驗
+### `ablation.py` — 模態消融實驗
 
 ```bash
 python 03_ablation.py --weights model.pth --data RML2016.10a_dict.pkl
@@ -103,7 +131,7 @@ python 03_ablation.py --weights model.pth --data RML2016.10a_dict.pkl
 
 ---
 
-### `04_gating_weights.py` — 門控網絡權重分析
+### `gating_weights.py` — 門控網絡權重分析
 
 ```bash
 python 04_gating_weights.py --weights model.pth --data RML2016.10a_dict.pkl
@@ -114,7 +142,7 @@ python 04_gating_weights.py --weights model.pth --data RML2016.10a_dict.pkl
 
 ---
 
-### `05_cnn_vs_transformer.py` — CNN vs Transformer 對比
+### `cnn_vs_transformer.py` — CNN vs Transformer 對比
 
 ```bash
 python 05_cnn_vs_transformer.py --weights model.pth --data RML2016.10a_dict.pkl
@@ -123,31 +151,3 @@ python 05_cnn_vs_transformer.py --weights model.pth --data RML2016.10a_dict.pkl
 **輸出：**
 - `cnn_vs_transformer_accuracy.png` — 整體 Accuracy vs SNR 對比折線圖
 - `cnn_vs_transformer_overall.png` — 整體準確率柱狀圖
-
----
-
-## 資料集
-
-本套件使用 [RadioML 2016.10a (RML2016.10a)](https://www.deepsig.ai/datasets)。
-下載後解壓，使用 `RML2016.10a_dict.pkl` 作為 `--data` 參數。
-
----
-
-## 模型架構
-
-GatedFusionFormer v3.0 融合三種模態特徵：
-
-```
-IQ Signal  (2, T)   → Conv1d Embedding
-STFT Map   (1,32,T) → 2D Conv + Freq-Adaptive Pool
-S-TD Stats (2, T)   → Conv1d Embedding
-                           ↓
-              GatingNetwork (動態融合權重)
-                           ↓
-              FusionTransformerBlock × depth
-              (Conv Encoder + Multi-Head Attention)
-                           ↓
-                    Linear Classifier
-```
-
-詳見 [`model.py`](model.py)。
