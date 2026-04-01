@@ -1,5 +1,5 @@
 ### ⚠️ 注意 / Caution — 請先確認存取權與用途 (請閱讀下面方法說明再執行)
-### ⚠️ Please confirm access rights and purpose first. (please read the instructions below before proceeding).
+### ⚠️ Please confirm access rights and purpose first. (Please read the instructions below before proceeding).
 
 # How to download each folder only / 只下載單一資料夾
 
