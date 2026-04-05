@@ -1,173 +1,117 @@
 # binance-multi-assets-singal-agent
 
+Binance 多資產交易訊號代理程式原型，包含後端與前端架構。  
 Multi-asset Binance trading signal agent prototype with backend and frontend structure.
 
 ---
 
-## Overview
+## 概述 | Overview
 
+一個多資產加密貨幣交易機器人，使用 MACD 等技術指標在 Binance 上自動執行交易邏輯。機器人獲取歷史資料、套用交易策略，並在 Binance Testnet 上模擬或執行交易。  
 A multi-asset crypto trading bot that uses technical indicators such as MACD to automate trading on Binance. This bot fetches historical data, applies trading logic, and simulates or executes trades on the Binance Testnet.
 
 ---
 
-## Category / Lifecycle / Tags
+## 類別與狀態 | Category and Lifecycle
 
-- **Category**: Development
-- **Type**: Quant | Signal | Feature Extraction
-- **Lifecycle**: stable
-- **Tags**: trading, quant, binance, agent
+- **類別 | Category**：Development
+- **類型 | Type**：Quant | Signal | Feature Extraction
+- **生命週期 | Lifecycle**：stable
+- **標籤 | Tags**：trading, quant, binance, agent
 
 ---
 
-## Project Structure
-  ```
-binance-trading-base/
-├── backend/                  # Python FastAPI 專案
+## 結構 | Structure
+
+```text
+Development/binance-multi-assets-singal-agent/
+├── backend/                  # Python FastAPI 專案 | Python FastAPI project
 │   ├── app/
-│   │   ├── __init__.py
-│   │   ├── api/              # API 端點 (Routes)
-│   │   │   ├── __init__.py
+│   │   ├── api/              # API 端點 | API endpoints
 │   │   │   ├── endpoints/
-│   │   │   │   ├── __init__.py
 │   │   │   │   └── bot_control.py  # 控制機器人啟動/停止/狀態的 API
-│   │   │   └── websocket.py      # WebSocket 即時通訊端點
+│   │   │   └── websocket.py        # WebSocket 即時通訊端點
 │   │   ├── core/
-│   │   │   ├── __init__.py
-│   │   │   └── config.py         # 讀取 API 金鑰和設定
+│   │   │   └── config.py           # 讀取 API 金鑰和設定
 │   │   ├── services/
-│   │   │   ├── __init__.py
-│   │   │   ├── binance_service.py # 封裝與幣安 API 的所有互動 (OOP)
-│   │   │   ├── indicator_service.py # 封裝所有技術指標計算 (MACD 等)
-│   │   │   └── trading_bot.py     # 核心交易機器人邏輯 (OOP Class)
-│   │   └── main.py               # FastAPI 應用程式進入點
-│   ├── .env                    # 儲存 API 金鑰 (重要！不要上傳到 Git)
+│   │   │   ├── binance_service.py  # 封裝幣安 API 互動（OOP）
+│   │   │   ├── indicator_service.py # 技術指標計算（MACD 等）
+│   │   │   └── trading_bot.py      # 核心交易機器人邏輯（OOP Class）
+│   │   └── main.py                 # FastAPI 應用程式進入點
+│   ├── .env                        # API 金鑰（請勿上傳至 Git）
 │   └── requirements.txt
-│
-├── frontend/                 # React 專案
-│   ├── public/
-│   │   └── index.html
+├── frontend/                 # React 專案 | React project
 │   ├── src/
 │   │   ├── api/
-│   │   │   └── botApi.js         # 呼叫後端 API 的函式
+│   │   │   └── botApi.js           # 呼叫後端 API 的函式
 │   │   ├── components/
-│   │   │   ├── BotController.js  # 包含開始/停止按鈕的組件
-│   │   │   ├── Dashboard.js      # 主儀表板
-│   │   │   ├── LogStream.js      # 顯示即時日誌的組件
-│   │   │   └── AssetStatus.js    # 顯示各個資產狀態的組件
+│   │   │   ├── BotController.js    # 開始/停止按鈕元件
+│   │   │   ├── Dashboard.js        # 主儀表板
+│   │   │   ├── LogStream.js        # 即時日誌元件
+│   │   │   └── AssetStatus.js      # 各資產狀態元件
 │   │   ├── hooks/
-│   │   │   └── useWebSocket.js   # 自訂 hook 用於處理 WebSocket 連線
+│   │   │   └── useWebSocket.js     # WebSocket 連線自訂 hook
 │   │   ├── App.js
 │   │   └── index.js
-│   ├── package.json
-│
+│   └── package.json
 └── README.md
-  ```
+```
 
 ---
 
-## Demo
+## 如何執行 | How to Run
 
+1. 安裝相依套件 | Install required packages:
+   ```sh
+   pip install -r requirements.txt
+   ```
+
+2. 在 `.env` 檔案中設定 Binance API 金鑰 | Configure Binance API keys in `.env`:
+   ```
+   BINANCE_API_KEY=your_api_key
+   BINANCE_API_SECRET=your_api_secret
+   ```
+
+3. 執行交易機器人 | Run the trading bot:
+   ```sh
+   python -m main_agent
+   ```
+
+4. 依照提示輸入 API 資訊並設定資產。  
+   Follow the prompts to enter your API information and configure your assets.
+
+---
+
+## 相依項目 | Dependencies
+
+- Python FastAPI（後端 | backend）
+- React（前端 | frontend）
+- python-binance
+- pandas、MACD 指標函式庫
+
+---
+
+## 輸出與展示 | Outputs and Demos
+
+### MACD 指標圖 | MACD Indicator Chart
 ![MACD 指標圖](pubclic/assets/macd-of-closing.png)
 
+### BTCUSDT 收盤價與訊號 | BTCUSDT Closing Price with Signals
 ![BTCUSDT Closing Price with Signals](pubclic/assets/BTCUSDT-closing-price-with-signals.png)
 
 ---
 
-## Features
+## 注意事項 | Notes and Limitations
 
-- Fetches historical 1-minute bars from Binance
-- Calculates MACD and percentage price change indicators
-- Determines buy/sell signals based on the trading strategy
-- Supports multiple assets
-- Interactive setup for API keys and asset configurations
-- Option to import asset data from .csv or .txt files
+- 本專案為交易機器人原型，請勿在真實帳戶中直接使用。This is a trading bot prototype; do not use directly with real accounts.
+- 需要有效的 Binance API 金鑰，測試建議使用 Binance Testnet。Requires valid Binance API keys; use Binance Testnet for testing.
+- `.env` 檔案含有 API 金鑰，請勿上傳至 Git。The `.env` file contains API keys — do not commit to Git.
+- 可從 `.csv` 或 `.txt` 檔案匯入資產清單。Option to import asset data from .csv or .txt files.
 
 ---
 
-## Setup
-1. Clone the repository:
-  ```sh
-  git clone https://github.com/yourusername/binance-assets-agent-macd.git
-  cd binance-assets-agent-macd
-  ```
+## 相關連結 | Related Links
 
----
-
-## Installation
-2. Install the required packages:
-  ```sh
-  pip install -r requirements.txt
-  ```
-
-3. Configure your Binance API keys in a `.env` file:
-  ```
-  BINANCE_API_KEY=your_api_key
-  BINANCE_API_SECRET=your_api_secret
-  ```
-
----
-
-## Usage
-### Running the Bot
-1. Ensure you have your Binance API key and secret ready.
-2. Run the bot:
-  ```sh
-  python -m main_agent
-  ```
-3. Follow the prompts to enter your API information and configure your assets.
-
----
-
-### Importing Assets from a File
-1. Place your assets.csv or assets.txt file in the data/ directory.
-2. The file should have the following structure:
-  ```
-  asset,is_long,order_size
-  BTC,False,[size]
-  LTC,False,100
-  TRX,False,1000
-  ETH,False,0.0003
-  BNB,False,0.0025
-  XRP,False,100
-  ```
-3. Run the bot and choose the option to import assets from the file.
-
----
-
-## License
-This project is licensed under the MIT License.
-
----
-
-## Acknowledgements
-
-### Binance API
-A big thanks to the [Binance API](https://github.com/sammchardy/python-binance) project which provides a comprehensive Python API for the Binance trading platform. 
-
-Here's a quick example of how to use the Binance API to fetch account information:
-  ```python
-  from binance.client import Client
-  
-  api_key = 'your_api_key'
-  api_secret = 'your_api_secret'
-  client = Client(api_key, api_secret, testnet=True)
-  
-  # Get account information
-  account_info = client.get_account()
-  print(account_info)
-  ```
-
----
-
-## Contact
-
-For any questions or suggestions, please open an issue or contact me at this project!
-
-Thank you for using the Binance Trading Bot! Happy trading! 📈
-
----
-
-## Related Links
-
-- [Project Catalog](../../catalog/index.md)
-- [Repository Root](../../README.md)
+- [Binance API (python-binance)](https://github.com/sammchardy/python-binance)
+- [專案 Catalog | Project Catalog](../../catalog/index.md)
+- [Repository 根目錄 | Repository Root](../../README.md)

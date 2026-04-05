@@ -1,56 +1,30 @@
 # amc-amr-gff-nn
 
+AMC AMR Gated Fusion Former 自動調變識別神經網路。  
 AMC AMR Gated Fusion Former neural network for automatic modulation recognition.
 
 ---
 
-## Overview
+## 概述 | Overview
 
+AMR_GateFusionFormer 神經網路的正式版本。門控機制作為訊號雜訊比感知的路由系統，在高 SNR 條件下優先使用頻率特徵（STFT），在強雜訊條件下優先使用結構保持特徵（S-TD/IQ）。  
 Production version of the AMR_GateFusionFormer neural network. The gating mechanism functions as a signal-to-noise ratio-aware routing system, prioritizing frequency features (STFT) under high SNR conditions and structural preservation features (S-TD/IQ) under heavy noise conditions.
 
 ---
 
-## Category / Lifecycle / Tags
+## 類別與狀態 | Category and Lifecycle
 
-- **Category**: Development
-- **Type**: Deep Learning | Neural Network
-- **Lifecycle**: stable
-- **Tags**: deep-learning, neural-network, gated-fusion-former, automatic-modulation-recognition
-
----
-
-## Dataset
-
-This project uses [RadioML 2016.10a (RML2016.10a)](https://www.deepsig.ai/datasets).
-After downloading and extracting, use `RML2016.10a_dict.pkl` as the `--data` parameter.
+- **類別 | Category**：Development
+- **類型 | Type**：Deep Learning | Neural Network
+- **生命週期 | Lifecycle**：stable
+- **標籤 | Tags**：deep-learning, neural-network, gated-fusion-former, automatic-modulation-recognition
 
 ---
 
-## Model Architecture
+## 結構 | Structure
 
-GatedFusionFormer NeuralNetwork fuses three modality features:
-
-```
-IQ Signal  (2, T)   → Conv1d Embedding
-STFT Map   (1,32,T) → 2D Conv + Freq-Adaptive Pool
-S-TD Stats (2, T)   → Conv1d Embedding
-                           ↓
-              GatingNetwork (dynamic fusion weights)
-                           ↓
-              FusionTransformerBlock × depth
-              (Conv Encoder + Multi-Head Attention)
-                           ↓
-                    Linear Classifier
-```
-
-See [`model.py`](model.py) for details.
-
----
-
-## Structure
-
-```
-amc-amr-gff-nn/
+```text
+Development/amc-amr-gff-nn/
 ├── assets/
 ├── src/
 │   ├── __init__.py
@@ -76,70 +50,74 @@ amc-amr-gff-nn/
 
 ---
 
-## Dependencies
+## 如何執行 | How to Run
+
+所有腳本共用相同的兩個必要參數：  
+All scripts share the same two required parameters:
+
+| 參數 | 說明 |
+|------|------|
+| `--weights` | 訓練完成的模型權重檔（.pth）— 必填。Trained model weights file (.pth) — required. |
+| `--data` | RML2016.10a_dict.pkl 的完整路徑 — 必填。Full path to RML2016.10a_dict.pkl — required. |
+
+選用參數 | Optional parameters:
+
+| 參數 | 預設值 | 說明 |
+|------|--------|------|
+| `--batch-size` | 256 | 推理批次大小。Inference batch size. |
+| `--output-dir` | `outputs` | 圖表輸出目錄。Chart output directory. |
+| `--device` | auto | `cpu` 或 `cuda`（自動偵測）。`cpu` or `cuda` (auto-detected). |
+
+---
+
+## 相依項目 | Dependencies
 
 ```bash
 pip install torch torchvision timm scipy scikit-learn matplotlib seaborn tqdm pandas
 ```
 
----
-
-## How to Run
-
-All scripts share the same two required parameters:
-
-| Parameter | Description |
-|---|---|
-| `--weights` | Trained model weights file (.pth) — required |
-| `--data` | Full path to RML2016.10a_dict.pkl — required |
-
-Optional parameters:
-
-| Parameter | Default | Description |
-|---|---|---|
-| `--batch-size` | 256 | Inference batch size |
-| `--output-dir` | `outputs` | Chart output directory |
-| `--device` | auto | `cpu` or `cuda` (auto-detected) |
+**資料集 | Dataset**：本專案使用 [RadioML 2016.10a (RML2016.10a)](https://www.deepsig.ai/datasets)。下載並解壓縮後，以 `RML2016.10a_dict.pkl` 作為 `--data` 參數。  
+This project uses [RadioML 2016.10a (RML2016.10a)](https://www.deepsig.ai/datasets). After downloading and extracting, use `RML2016.10a_dict.pkl` as the `--data` parameter.
 
 ---
 
-## Experiments
+## 輸出與展示 | Outputs and Demos
 
-### `evaluate.py` — Basic Model Evaluation
+所有圖表、視覺化結果、CSV 與 logs 儲存於 `--output-dir` 指定目錄（預設 `outputs/`）。  
+All charts, visualizations, CSVs, and logs are saved in the directory specified by `--output-dir` (default `outputs/`).
+
+### 基本模型評估 | Basic Model Evaluation (`evaluate.py`)
 
 ```bash
 python src/run.py evaluate --weights path/to/model.pth --data path/to/RML2016.10a_dict.pkl --batch-size 256
 ```
 
-**輸出：**
-- `confusion_matrix_counts.png` — 原始計數混淆矩陣
-- `confusion_matrix_normalized.png` — 歸一化混淆矩陣
+**輸出 | Outputs:**
+- `confusion_matrix_counts.png` — 原始計數混淆矩陣 | Raw count confusion matrix
+- `confusion_matrix_normalized.png` — 歸一化混淆矩陣 | Normalized confusion matrix
 - `accuracy_vs_snr.png` — 整體 Accuracy vs SNR
 
----
-
-### `deep_analysis.py` — 深度性能分析
+### 深度性能分析 | Deep Analysis (`deep_analysis.py`)
 
 ```bash
 python src/run.py deep_analysis --weights model.pth --data RML2016.10a_dict.pkl
 ```
 
-**輸出：**
+**輸出 | Outputs:**
 - `per_class_accuracy_vs_snr.png` — 各類別 Accuracy vs SNR
 - `confused_categories_high_snr.png` — 高 SNR 易混淆類別柱狀圖
 - `tsne_visualization.png` — t-SNE 特徵空間可視化（低 / 高 SNR）
 
 ![per_class_acc_vs_snr](assets/per_class_acc_vs_snr.png)
 ![tsne_visualization](assets/tsne_visualization.png)
----
 
-### `ablation.py` — 模態消融實驗
+### 模態消融實驗 | Ablation Study (`ablation.py`)
 
 ```bash
 python src/run.py ablation --weights model.pth --data RML2016.10a_dict.pkl
 ```
 
-**輸出：**
+**輸出 | Outputs:**
 - `ablation_single_modality.png` — 單模態消融 Accuracy vs SNR
 - `ablation_pairwise_modality.png` — 成對模態消融 Accuracy vs SNR
 - `ablation_confused_categories.png` — 高 SNR 易混淆類別對比
@@ -147,90 +125,41 @@ python src/run.py ablation --weights model.pth --data RML2016.10a_dict.pkl
 ![ablation_single_modality](assets/ablation_single_modality.png)
 ![ablation_pairwise_modality](assets/ablation_pairwise_modality.png)
 
-
----
-
-### `gating_weights.py` — 門控網絡權重分析
+### 門控網絡權重分析 | Gating Weights Analysis (`gating_weights.py`)
 
 ```bash
 python src/run.py gating --weights model.pth --data RML2016.10a_dict.pkl
 ```
 
-**輸出：**
+**輸出 | Outputs:**
 - `gating_weights_vs_snr.png` — IQ / STFT / S-TD 模態重要性 vs SNR
 
 ![gating_weights_vs_snr](assets/gating_weights_vs_snr.png)
 
----
-
-### TODO:
-### `cnn_vs_transformer.py` — CNN vs Transformer 對比
+### CNN vs Transformer 對比（TODO）| CNN vs Transformer Comparison (TODO)
 
 ```bash
 python src/run.py compare --weights model.pth --data RML2016.10a_dict.pkl
 ```
 
-**輸出：**
+**輸出 | Outputs:**
 - `gffnn_compare_acc.png` — 整體 Accuracy vs SNR 對比折線圖
 - `gffnn_compare_overall.png` — 整體準確率柱狀圖
 
+---
 
+## 注意事項 | Notes and Limitations
+
+- 可使用模組化方式執行 | Module run alternative:
+  ```bash
+  python -m src.run evaluate --weights ... --data ...
+  ```
+- 建議為 CLI subcommands 加入 unittest / pytest 以確保重構後行為一致。Apply unittest / pytest to CLI subcommands to ensure behavior consistency after refactoring.
+- 建議將設定（超參數）移至 YAML/JSON 並進行版本追蹤，以確保實驗可重現。Move config (hyperparameters) to YAML/JSON with version tracking for reproducible experiments.
 
 ---
 
-（若 prefer module run）
-```bash
-python -m src.run evaluate --weights ... --data ...
-```
+## 相關連結 | Related Links
 
----
-
-## 輸出說明
-
-- 所有圖表、可視化結果、CSV、與 logs 會儲存在 `--output-dir` 指定的目錄（預設 `outputs/`）。
-- 常見輸出檔例：
-  - `confusion_matrix_counts.png`
-  - `confusion_matrix_normalized.png`
-  - `accuracy_vs_snr.png`
-  - `per_class_accuracy_vs_snr.png`
-  - `tsne_visualization.png`
-  - `gating_weights_vs_snr.png`
-  - `ablation_*.png`
-  - `cnn_vs_transformer_accuracy.png`
-
-### 程式化呼叫（當作 library 使用）
-
-如果你想在其他程式中直接使用模型或 pipeline，可以匯入 factory 與工具函式：
-```python
-from src.models.factory import build_model
-from src.core.dataset import RMLDataset
-from src.utils import load_weights, predict_batch
-
-# 建構模型
-model = build_model(name="gff_nn", num_classes=11)
-# 載入權重
-load_weights(model, "path/to/model.pth")
-# 資料/推理
-dataset = RMLDataset("path/to/RML2016.10a_dict.pkl", split="test")
-preds = predict_batch(model, dataset, device="cuda")
-```
-（上述 API 名稱為範例；請以實際 code 中的 function/class 名稱為準）
-
----
-
-### Maintenance & Development Recommendations
-
-- Apply unittest / pytest to CLI subcommands to ensure behavior consistency after refactoring
-- Move config (hyperparameters) to YAML/JSON with version tracking for reproducible experiments
-- Annotate compatibility between model factory and config to reduce configuration errors
-
-### Version History
-
-- README.v4.md — This file (modular / production-friendly)
-
----
-
-## Related Links
-
-- [Project Catalog](../../catalog/index.md)
-- [Repository Root](../../README.md)
+- [專案 Catalog | Project Catalog](../../catalog/index.md)
+- [Repository 根目錄 | Repository Root](../../README.md)
