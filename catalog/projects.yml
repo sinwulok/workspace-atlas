@@ -5,7 +5,7 @@
 projects:
   # Research 專案
   ogb-bond-signal-anomaly:
-    path: Research/ogb-bond-signal-anomaly
+    path: Research/cnogb-bond-signal-anomaly
     category: Research
     type: "Data Science / Forecasting"
     description: "Forecasting / modeling demo related to weighted bond prediction."
