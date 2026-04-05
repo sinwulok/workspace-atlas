@@ -26,17 +26,17 @@ public-demos/
 ### Research/
 研究型專案，包含資料科學、機器學習、預測模型等學術或實驗性質的專案。
 
-- **ogb-bond-signal-anomaly** - 債券加權預測/建模示範（原 bond-weighted-forecast）
+- **cnogb-bond-signal-anomaly** - 債券加權預測/人為干預成份權重提取/異常檢測（原 bond-weighted-forecast）
 - **machine-learning-applications-in-fmri** - fMRI 機器學習應用研究
-- **e-learning-fa-ipy** - 電子學習資料分析專案（使用 Jupyter notebooks）
+- **e-learning-fa-ipy** - 電子學習資料分析專案（Jupyter notebooks post-anonymization）
 
 ### Development/
-開發型專案，包含前端應用、交易機器人、神經網路等開發中或已完成的應用程式。
+開發型專案，包含前端應用、交易策略檢測、神經網路等開發中或已完成的應用程式。
 
 - **amc-amr-gff-nn** - AMC AMR GFF 神經網路專案
 - **animated-gradient-text-starter** - 動態漸層文字啟動專案（Next.js + TypeScript + Tailwind）
 - **r3f-portfolio** - React Three Fiber 3D 作品集網站
-- **binance-multi-assets-singal-agent** - Binance 多資產交易訊號代理/機器人原型
+- **binance-multi-assets-singal-agent** - Binance 多資產交易訊號代理/投資組合檢測原型
 
 ### Other/
 其他類型專案，包含模板、工具等非研究或開發性質的內容。
