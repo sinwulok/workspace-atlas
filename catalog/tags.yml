@@ -1,108 +1,120 @@
 # tags.yml
-# 專案標籤定義與說明
+# Project tag definitions and descriptions
 
 tags:
-  # 資料科學與研究
-  data-science:
-    category: "Data Science"
-    description: "資料科學相關專案"
-
+  # Data Science & Research
   machine-learning:
-    category: "Data Science"
-    description: "機器學習相關專案"
+    category: Data Science
+    description: Machine learning projects
+
+  deep-learning:
+    category: Data Science
+    description: Deep learning and neural networks
 
   forecasting:
-    category: "Data Science"
-    description: "預測模型相關專案"
+    category: Data Science
+    description: Forecasting and prediction models
 
   research:
-    category: "Data Science"
-    description: "學術研究性質專案"
+    category: Data Science
+    description: Academic research projects
 
-  # 領域特定
+  transformer:
+    category: Data Science
+    description: Transformer models
+
+  anomaly:
+    category: Data Science
+    description: Anomaly detection
+
+  # Domain-Specific
   finance:
-    category: "Domain"
-    description: "金融相關專案"
+    category: Domain
+    description: Finance-related projects
 
   fmri:
-    category: "Domain"
-    description: "功能性磁共振成像相關專案"
+    category: Domain
+    description: Functional MRI projects
 
   education:
-    category: "Domain"
-    description: "教育相關專案"
+    category: Domain
+    description: Education-related projects
 
   trading:
-    category: "Domain"
-    description: "交易相關專案"
+    category: Domain
+    description: Trading and financial markets
 
   quant:
-    category: "Domain"
-    description: "量化金融相關專案"
+    category: Domain
+    description: Quantitative finance
 
-  # 技術棧
+  # Technology Stack
   neural-network:
-    category: "Technology"
-    description: "神經網路相關專案"
+    category: Technology
+    description: Neural network architectures
 
   frontend:
-    category: "Technology"
-    description: "前端開發專案"
+    category: Technology
+    description: Frontend development
 
   nextjs:
-    category: "Technology"
-    description: "使用 Next.js 框架的專案"
+    category: Technology
+    description: Next.js framework
 
   typescript:
-    category: "Technology"
-    description: "使用 TypeScript 的專案"
+    category: Technology
+    description: TypeScript language
 
   react:
-    category: "Technology"
-    description: "使用 React 的專案"
+    category: Technology
+    description: React library
 
   three-fiber:
-    category: "Technology"
-    description: "使用 React Three Fiber 的專案"
+    category: Technology
+    description: React Three Fiber (3D graphics)
 
   jupyter:
-    category: "Technology"
-    description: "使用 Jupyter Notebooks 的專案"
+    category: Technology
+    description: Jupyter notebooks
 
   latex:
-    category: "Technology"
-    description: "使用 LaTeX 的專案"
+    category: Technology
+    description: LaTeX typesetting
 
-  # 專案類型
+  # Project Types
   ui:
-    category: "Type"
-    description: "使用者介面相關專案"
-
-  3d:
-    category: "Type"
-    description: "3D 圖形相關專案"
+    category: Type
+    description: User interface projects
 
   portfolio:
-    category: "Type"
-    description: "作品集網站"
+    category: Type
+    description: Portfolio websites
 
   agent:
-    category: "Type"
-    description: "智能代理相關專案"
+    category: Type
+    description: Intelligent agents
 
   template:
-    category: "Type"
-    description: "模板專案"
+    category: Type
+    description: Template projects
 
   cv:
-    category: "Type"
-    description: "履歷相關專案"
+    category: Type
+    description: CV/resume projects
 
   resume:
-    category: "Type"
-    description: "簡歷相關專案"
+    category: Type
+    description: Resume documents
 
-  # 平台
+  # Platforms & Specialized
   binance:
-    category: "Platform"
-    description: "Binance 交易所相關專案"
+    category: Platform
+    description: Binance exchange
+
+  automatic-modulation-recognition:
+    category: Platform
+    description: Automatic modulation recognition systems
+
+  gated-fusion-former:
+    category: Platform
+    description: Gated Fusion Former architecture

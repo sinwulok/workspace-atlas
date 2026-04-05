@@ -1,14 +1,14 @@
 # catalog/projects.yml
-# 專案索引與 metadata
-# 用途：機器可讀的專案索引，提供專案分類、狀態、標籤等資訊
+# Project index and metadata
+# Purpose: Machine-readable project index providing project categorization, status, and tags
 
 projects:
-  # Research 專案
+  # Research Projects
   cnogb-bond-signal-anomaly:
     path: Research/cnogb-bond-signal-anomaly
     category: Research
-    type: "Transformer | Forecasting | Anomaly"
-    description: "Forecasting | Anomaly and modeling related to weighted bond detection."
+    type: Transformer | Forecasting | Anomaly
+    description: Bond forecasting and anomaly detection using Transformer models with weighted feature extraction.
     stack:
       - jupyter-notebook
       - python
@@ -22,8 +22,8 @@ projects:
   machine-learning-applications-in-fmri:
     path: Research/machine-learning-applications-in-fmri
     category: Research
-    type: "Machine learning | fMRI"
-    description: "Machine learning experiment or research demo focused on fMRI applications."
+    type: Machine Learning | fMRI
+    description: Machine learning applications for functional MRI analysis and research.
     lifecycle: stable
     tags:
       - machine-learning
@@ -33,20 +33,20 @@ projects:
   e-learning-fa-ipy:
     path: Research/e-learning-fa-ipy
     category: Research
-    type: " Machine Learning | Functional Component Analysis"
-    description: "E-learning data analysis project using Jupyter notebooks, with preprocessing, modeling, and visualization."
+    type: Machine Learning | Functional Component Analysis
+    description: E-learning data analysis using Jupyter notebooks with preprocessing, modeling, and visualization.
     lifecycle: stable
     tags:
       - machine-learning
       - jupyter
       - education
 
-  # Development 專案
+  # Development Projects
   amc-amr-gff-nn:
     path: Development/amc-amr-gff-nn
     category: Development
-    type: "Deep Learning | Neural Network"
-    description: "AMC AMR GFF neural network project."
+    type: Deep Learning | Neural Network
+    description: AMC AMR Gated Fusion Former neural network for automatic modulation recognition.
     lifecycle: stable
     tags:
       - deep-learning
@@ -57,8 +57,8 @@ projects:
   animated-gradient-text-starter:
     path: Development/animated-gradient-text-starter
     category: Development
-    type: "Frontend | UI Demo"
-    description: "Animated gradient text starter project built with Next.js, TypeScript, and Tailwind CSS."
+    type: Frontend | UI Demo
+    description: Animated gradient text starter project built with Next.js, TypeScript, and Tailwind CSS.
     lifecycle: stable
     tags:
       - frontend
@@ -69,8 +69,8 @@ projects:
   r3f-portfolio:
     path: Development/r3f-portfolio
     category: Development
-    type: "Frontend | R3F | Portfolio"
-    description: "React Three Fiber portfolio with 3D visuals, animations, and interactive sections."
+    type: Frontend | R3F | Portfolio
+    description: React Three Fiber portfolio with 3D visuals, animations, and interactive sections.
     lifecycle: stable
     tags:
       - frontend
@@ -81,8 +81,8 @@ projects:
   binance-multi-assets-singal-agent:
     path: Development/binance-multi-assets-singal-agent
     category: Development
-    type: "Quant | Signal | Feature Extraction"
-    description: "Multi-asset Binance trading signal agent / bot prototype with backend and frontend structure."
+    type: Quant | Signal | Feature Extraction
+    description: Multi-asset Binance trading signal agent prototype with backend and frontend structure.
     lifecycle: stable
     tags:
       - trading
@@ -90,12 +90,12 @@ projects:
       - binance
       - agent
 
-  # Other 專案
+  # Other Projects
   sw-single-page-cv-latex-templates:
     path: Other/sw-single-page-cv-latex-templates
     category: Other
-    type: "LaTeX | Utilities | Templates"
-    description: "LaTeX templates for single-page CV | resume documents."
+    type: LaTeX | Utilities | Templates
+    description: LaTeX templates for single-page CV and resume documents.
     lifecycle: stable
     tags:
       - latex
