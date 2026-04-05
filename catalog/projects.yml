@@ -4,7 +4,7 @@
 
 projects:
   # Research 專案
-  ogb-bond-signal-anomaly:
+  cnogb-bond-signal-anomaly:
     path: Research/cnogb-bond-signal-anomaly
     category: Research
     type: "Transformer | Forecasting | Anomaly"
@@ -33,7 +33,7 @@ projects:
   e-learning-fa-ipy:
     path: Research/e-learning-fa-ipy
     category: Research
-    type: " Machine Learning | Funcitonal Component Analysis"
+    type: " Machine Learning | Functional Component Analysis"
     description: "E-learning data analysis project using Jupyter notebooks, with preprocessing, modeling, and visualization."
     lifecycle: stable
     tags:
@@ -81,7 +81,7 @@ projects:
   binance-multi-assets-singal-agent:
     path: Development/binance-multi-assets-singal-agent
     category: Development
-    type: "Quant | Singal | Feature"
+    type: "Quant | Signal | Feature Extraction"
     description: "Multi-asset Binance trading signal agent / bot prototype with backend and frontend structure."
     lifecycle: stable
     tags:
