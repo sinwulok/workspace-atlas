@@ -1,8 +1,23 @@
-markdown
+# binance-multi-assets-singal-agent
 
-# Binance Trading Bot Base Prototype
+Multi-asset Binance trading signal agent prototype with backend and frontend structure.
+
+---
+
+## Overview
 
 A multi-asset crypto trading bot that uses technical indicators such as MACD to automate trading on Binance. This bot fetches historical data, applies trading logic, and simulates or executes trades on the Binance Testnet.
+
+---
+
+## Category / Lifecycle / Tags
+
+- **Category**: Development
+- **Type**: Quant | Signal | Feature Extraction
+- **Lifecycle**: stable
+- **Tags**: trading, quant, binance, agent
+
+---
 
 ## Project Structure
   ```
@@ -48,12 +63,15 @@ binance-trading-base/
 └── README.md
   ```
 
+---
+
 ## Demo
 
 ![MACD 指標圖](pubclic/assets/macd-of-closing.png)
 
-![BTCUSDT 收盤價與交易信號](pubclic/assets/BTCUSDT-closing-price-with-signals.png)
+![BTCUSDT Closing Price with Signals](pubclic/assets/BTCUSDT-closing-price-with-signals.png)
 
+---
 
 ## Features
 
@@ -64,6 +82,7 @@ binance-trading-base/
 - Interactive setup for API keys and asset configurations
 - Option to import asset data from .csv or .txt files
 
+---
 
 ## Setup
 1. Clone the repository:
@@ -71,6 +90,9 @@ binance-trading-base/
   git clone https://github.com/yourusername/binance-assets-agent-macd.git
   cd binance-assets-agent-macd
   ```
+
+---
+
 ## Installation
 2. Install the required packages:
   ```sh
@@ -83,6 +105,8 @@ binance-trading-base/
   BINANCE_API_SECRET=your_api_secret
   ```
 
+---
+
 ## Usage
 ### Running the Bot
 1. Ensure you have your Binance API key and secret ready.
@@ -90,7 +114,9 @@ binance-trading-base/
   ```sh
   python -m main_agent
   ```
-3.Follow the prompts to enter your API information and configure your assets.
+3. Follow the prompts to enter your API information and configure your assets.
+
+---
 
 ### Importing Assets from a File
 1. Place your assets.csv or assets.txt file in the data/ directory.
@@ -106,9 +132,12 @@ binance-trading-base/
   ```
 3. Run the bot and choose the option to import assets from the file.
 
+---
 
 ## License
 This project is licensed under the MIT License.
+
+---
 
 ## Acknowledgements
 
@@ -128,7 +157,17 @@ Here's a quick example of how to use the Binance API to fetch account informatio
   print(account_info)
   ```
 
+---
+
 ## Contact
+
 For any questions or suggestions, please open an issue or contact me at this project!
 
 Thank you for using the Binance Trading Bot! Happy trading! 📈
+
+---
+
+## Related Links
+
+- [Project Catalog](../../catalog/index.md)
+- [Repository Root](../../README.md)

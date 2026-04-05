@@ -1,8 +1,23 @@
+# r3f-portfolio
+
+React Three Fiber portfolio with 3D visuals, animations, and interactive sections.
+
 ---
 
-# React 3JS Portfolio
+## Overview
 
-A modern, interactive portfolio built with **React**, **Vite**, and **Three.js**, featuring custom 3D graphics, advanced animations, and a smooth user experience. This project showcases not only standard portfolio features but also unique, highly customized sections, including dotLottie-powered animations and responsive design.
+A modern, interactive portfolio built with React, Vite, and Three.js, featuring custom 3D graphics, advanced animations, and a smooth user experience. This project showcases standard portfolio features plus unique, highly customized sections including dotLottie-powered animations and responsive design.
+
+---
+
+## Category / Lifecycle / Tags
+
+- **Category**: Development
+- **Type**: Frontend | R3F | Portfolio
+- **Lifecycle**: stable
+- **Tags**: frontend, react, three-fiber, portfolio
+
+---
 
 ## Table of Contents
 
@@ -121,3 +136,9 @@ Pull requests and stars are always welcome! For major changes, please open an is
 [MIT](LICENSE)
 
 ---
+
+## Related Links
+
+- [Browse all components](https://github.com/BiuwuLOK/react-3js-portfolio/tree/main/src/components)
+- [Project Catalog](../../catalog/index.md)
+- [Repository Root](../../README.md)

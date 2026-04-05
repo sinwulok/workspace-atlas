@@ -1,29 +1,41 @@
-# GatedFusionFormer NeuralNetwork
+# amc-amr-gff-nn
 
-> **說明**：原始 `AMR_GateFusionFormer_v8_clean.ipynb`（64 cells）Productionization
-
-> 門控機制在數學上表現為一個信噪比相關的路由系統，在高信噪比條件下智能地優先使用頻率特徵（短時傅立葉變換，STFT），
-> 而在嚴重噪聲條件下則退而求其次使用結構保持特徵（短時差分/圖像質量，S-TD/IQ）。
+AMC AMR Gated Fusion Former neural network for automatic modulation recognition.
 
 ---
 
-## 資料集
+## Overview
 
-本套件使用 [RadioML 2016.10a (RML2016.10a)](https://www.deepsig.ai/datasets)。
-下載後解壓，使用 `RML2016.10a_dict.pkl` 作為 `--data` 參數。
+Production version of the AMR_GateFusionFormer neural network. The gating mechanism functions as a signal-to-noise ratio-aware routing system, prioritizing frequency features (STFT) under high SNR conditions and structural preservation features (S-TD/IQ) under heavy noise conditions.
 
 ---
 
-## 模型架構
+## Category / Lifecycle / Tags
 
-GatedFusionFormer NeuralNetwork 融合三種模態特徵：
+- **Category**: Development
+- **Type**: Deep Learning | Neural Network
+- **Lifecycle**: stable
+- **Tags**: deep-learning, neural-network, gated-fusion-former, automatic-modulation-recognition
+
+---
+
+## Dataset
+
+This project uses [RadioML 2016.10a (RML2016.10a)](https://www.deepsig.ai/datasets).
+After downloading and extracting, use `RML2016.10a_dict.pkl` as the `--data` parameter.
+
+---
+
+## Model Architecture
+
+GatedFusionFormer NeuralNetwork fuses three modality features:
 
 ```
 IQ Signal  (2, T)   → Conv1d Embedding
 STFT Map   (1,32,T) → 2D Conv + Freq-Adaptive Pool
 S-TD Stats (2, T)   → Conv1d Embedding
                            ↓
-              GatingNetwork (動態融合權重)
+              GatingNetwork (dynamic fusion weights)
                            ↓
               FusionTransformerBlock × depth
               (Conv Encoder + Multi-Head Attention)
@@ -31,11 +43,11 @@ S-TD Stats (2, T)   → Conv1d Embedding
                     Linear Classifier
 ```
 
-詳見 [`model.py`](model.py)。
+See [`model.py`](model.py) for details.
 
 ---
 
-## 目錄結構
+## Structure
 
 ```
 amc-amr-gff-nn/
@@ -43,11 +55,11 @@ amc-amr-gff-nn/
 ├── src/
 │   ├── __init__.py
 │   ├── run.py                 # CLI / subcommands entrypoint
-│   ├── export.py              # 模型匯出 / ONNX / TorchScript (選用)
-│   ├── utils.py               # 共用工具（IO、plotting、metrics）
+│   ├── export.py              # Model export / ONNX / TorchScript (optional)
+│   ├── utils.py               # Shared utilities (IO, plotting, metrics)
 │   ├── configs/
-│   │   └── config.py          # 預設設定 / hyperparams
-│   ├── core/                  # 分析/實驗模組（evaluate, deep_analysis, ...）
+│   │   └── config.py          # Default settings / hyperparams
+│   ├── core/                  # Analysis/experiment modules
 │   │   ├── dataset.py
 │   │   ├── evaluate.py
 │   │   ├── deep_analysis.py
@@ -64,7 +76,7 @@ amc-amr-gff-nn/
 
 ---
 
-## 環境需求
+## Dependencies
 
 ```bash
 pip install torch torchvision timm scipy scikit-learn matplotlib seaborn tqdm pandas
@@ -72,26 +84,28 @@ pip install torch torchvision timm scipy scikit-learn matplotlib seaborn tqdm pa
 
 ---
 
-## 通用執行方式
+## How to Run
 
-所有腳本共用相同的兩個必填參數：
+All scripts share the same two required parameters:
 
-| 參數 | 說明 |
-  - `--weights` : 訓練後的 model weights 檔案（.pth） — 必填
-  - `--data`    : RML2016.10a_dict.pkl 的完整路徑 — 必填
+| Parameter | Description |
+|---|---|
+| `--weights` | Trained model weights file (.pth) — required |
+| `--data` | Full path to RML2016.10a_dict.pkl — required |
 
-選用參數：
+Optional parameters:
 
-| 參數 | 預設 | 說明 |
+| Parameter | Default | Description |
 |---|---|---|
-| `--batch-size` | 256 | 推理批次大小 |
-| `--output-dir` | `outputs` | 圖表儲存目錄 |
-  - `--device`  : `cpu` 或 `cuda`（預設自動偵測）
+| `--batch-size` | 256 | Inference batch size |
+| `--output-dir` | `outputs` | Chart output directory |
+| `--device` | auto | `cpu` or `cuda` (auto-detected) |
+
 ---
 
-## 各實驗說明
+## Experiments
 
-### `evaluate.py` — 基礎模型評估
+### `evaluate.py` — Basic Model Evaluation
 
 ```bash
 python src/run.py evaluate --weights path/to/model.pth --data path/to/RML2016.10a_dict.pkl --batch-size 256
@@ -204,12 +218,19 @@ preds = predict_batch(model, dataset, device="cuda")
 
 ---
 
-### 維護與開發建議
+### Maintenance & Development Recommendations
 
-- 將 CLI 的 subcommands 套用 unittest / pytest 測試，以確保 refactor 後 CLI 行為的改變。
-- 將 config（超參數）移到 YAML/JSON，並加入版本記錄，方便在實驗重現時載入 exact config。
-- 在模型 factory 與 config 之間標註相容性（哪個 model-name 需要哪些 config keys），減少使用錯誤。
+- Apply unittest / pytest to CLI subcommands to ensure behavior consistency after refactoring
+- Move config (hyperparameters) to YAML/JSON with version tracking for reproducible experiments
+- Annotate compatibility between model factory and config to reduce configuration errors
 
-### 版本紀錄（小節）
+### Version History
 
-- README.v4.md — 本檔（模組化 / production-friendly）
+- README.v4.md — This file (modular / production-friendly)
+
+---
+
+## Related Links
+
+- [Project Catalog](../../catalog/index.md)
+- [Repository Root](../../README.md)
