@@ -7,18 +7,22 @@ projects:
   ogb-bond-signal-anomaly:
     path: Research/cnogb-bond-signal-anomaly
     category: Research
-    type: "Transformer | Data Science | Anomaly | Research"
+    type: "Transformer | Forecasting | Anomaly"
     description: "Forecasting | Anomaly and modeling related to weighted bond detection."
+    stack:
+      - jupyter-notebook
+      - python
     lifecycle: stable
     tags:
-      - data-science
+      - transformer
       - forecasting
+      - anomaly
       - finance
 
   machine-learning-applications-in-fmri:
     path: Research/machine-learning-applications-in-fmri
     category: Research
-    type: "Machine learning | Data Science | Research"
+    type: "Machine learning | fMRI"
     description: "Machine learning experiment or research demo focused on fMRI applications."
     lifecycle: stable
     tags:
@@ -29,11 +33,10 @@ projects:
   e-learning-fa-ipy:
     path: Research/e-learning-fa-ipy
     category: Research
-    type: " Machine Learning | Data Science | Research"
+    type: " Machine Learning | Funcitonal Component Analysis"
     description: "E-learning data analysis project using Jupyter notebooks, with preprocessing, modeling, and visualization."
     lifecycle: stable
     tags:
-      - data-science
       - machine-learning
       - jupyter
       - education
@@ -42,17 +45,19 @@ projects:
   amc-amr-gff-nn:
     path: Development/amc-amr-gff-nn
     category: Development
-    type: "Deep Learning | Neural Network | Development"
+    type: "Deep Learning | Neural Network"
     description: "AMC AMR GFF neural network project."
     lifecycle: stable
     tags:
+      - deep-learning
       - neural-network
-      - development
+      - gated-fusion-former
+      - automatic-modulation-recognition
 
   animated-gradient-text-starter:
     path: Development/animated-gradient-text-starter
     category: Development
-    type: "Frontend | UI Demo | Development"
+    type: "Frontend | UI Demo"
     description: "Animated gradient text starter project built with Next.js, TypeScript, and Tailwind CSS."
     lifecycle: stable
     tags:
@@ -64,20 +69,19 @@ projects:
   r3f-portfolio:
     path: Development/r3f-portfolio
     category: Development
-    type: "Frontend | R3F | Portfolio | Development"
+    type: "Frontend | R3F | Portfolio"
     description: "React Three Fiber portfolio with 3D visuals, animations, and interactive sections."
     lifecycle: stable
     tags:
       - frontend
       - react
       - three-fiber
-      - 3d
       - portfolio
 
   binance-multi-assets-singal-agent:
     path: Development/binance-multi-assets-singal-agent
     category: Development
-    type: "Quant | Singal | Feature | Development"
+    type: "Quant | Singal | Feature"
     description: "Multi-asset Binance trading signal agent / bot prototype with backend and frontend structure."
     lifecycle: stable
     tags:
@@ -95,6 +99,7 @@ projects:
     lifecycle: stable
     tags:
       - latex
-      - template
       - cv
       - resume
+      - template
+
