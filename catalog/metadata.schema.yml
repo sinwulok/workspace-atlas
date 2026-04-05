@@ -1,19 +1,19 @@
 # metadata.schema.yml
-# 專案 metadata 欄位定義
+# Project metadata field definitions
 
-# 本檔案定義 projects.yml 中各欄位的格式與用途
+# This file defines the format and purpose of fields in projects.yml
 
 fields:
   path:
     type: string
     required: true
-    description: "專案相對於 repository root 的路徑"
+    description: Project path relative to repository root
     example: "Research/cnogb-bond-signal-anomaly"
 
   category:
     type: string
     required: true
-    description: "專案分類"
+    description: Project category
     allowed_values:
       - Research
       - Development
@@ -22,18 +22,18 @@ fields:
   type:
     type: string
     required: true
-    description: "專案類型描述"
+    description: Project type description
     example: "Transformer | Data Science | Machine Learning | Anomaly"
 
   description:
     type: string
     required: true
-    description: "專案簡介"
+    description: Project description
 
   lifecycle:
     type: string
     required: true
-    description: "專案生命週期狀態"
+    description: Project lifecycle status
     allowed_values:
       - incubation
       - stable
@@ -42,5 +42,5 @@ fields:
   tags:
     type: array
     required: false
-    description: "專案標籤列表"
+    description: Project tag list
     item_type: string
