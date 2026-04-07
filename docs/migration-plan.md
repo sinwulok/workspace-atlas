@@ -15,7 +15,7 @@
 
 | 原路徑 | 新路徑 | 備註 |
 |--------|--------|------|
-| `bond-weighted-forecast/` | `Research/ogb-bond-signal-anomaly/` | 專案改名 |
+| `bond-weighted-forecast/` | `Research/cnogb-bond-signal-anomaly/` | 專案改名 |
 | `machine-learning-applications-in-fmri/` | `Research/machine-learning-applications-in-fmri/` | 路徑遷移 |
 | `e-learning-fa-ipy/` | `Research/e-learning-fa-ipy/` | 路徑遷移 |
 | `amc-amr-gff-nn/` | `Development/amc-amr-gff-nn/` | 路徑遷移 |
@@ -40,7 +40,7 @@
 
 ### Phase 3: 搬移專案
 - ✅ 將專案原封不動搬移到對應目錄
-- ✅ `bond-weighted-forecast/` 改名為 `ogb-bond-signal-anomaly/`
+- ✅ `bond-weighted-forecast/` 改名為 `cnogb-bond-signal-anomaly/`
 - ✅ 僅移動檔案位置，不更動檔案內容
 
 ### Phase 4: 更新索引與文件

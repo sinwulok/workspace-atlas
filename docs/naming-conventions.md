@@ -9,7 +9,7 @@
 - 使用英文命名
 
 ### 範例 | Examples
-- ✅ `ogb-bond-signal-anomaly`
+- ✅ `cnogb-bond-signal-anomaly`
 - ✅ `machine-learning-applications-in-fmri`
 - ✅ `r3f-portfolio`
 - ❌ `MyProject`（應使用 kebab-case）

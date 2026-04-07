@@ -1,65 +1,30 @@
 # animated-gradient-text-starter
 
+動態漸層文字動畫入門專案，使用 Next.js、TypeScript 與 Tailwind CSS 建構。  
 Animated gradient text starter project built with Next.js, TypeScript, and Tailwind CSS.
 
 ---
 
-## Overview
+## 概述 | Overview
 
+一個示範如何以 CSS 與 TypeScript 實作動態漸層文字效果的入門專案。  
 A simple starter project demonstrating how to implement animated gradient text effects using CSS and TypeScript.
 
 ---
 
-## Category / Lifecycle / Tags
+## 類別與狀態 | Category and Lifecycle
 
-- **Category**: Development
-- **Type**: Frontend | UI Demo
-- **Lifecycle**: stable
-- **Tags**: frontend, nextjs, typescript, ui
-
----
-
-## Features
-
-- CSS-based animated gradient text effects
-- TypeScript for type-safe development
-- Suitable for portfolios, learning, or frontend project templates
-
-## Preview
-
-![animated-gradient-text-preview](./assets/preview.gif)
+- **類別 | Category**：Development
+- **類型 | Type**：Frontend | UI Demo
+- **生命週期 | Lifecycle**：stable
+- **標籤 | Tags**：frontend, nextjs, typescript, ui
 
 ---
 
-## How to Run
+## 結構 | Structure
 
-1. **Clone the project**
-   ```bash
-   git clone https://github.com/BiuwuLOK/animated-gradient-text-starter.git
-   cd animated-gradient-text-starter
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Start development server**
-   ```bash
-   npm run dev
-   ```
-
-4. **Open in browser**
-   ```
-   http://localhost:3000
-   ```
-
----
-
-## Structure
-
-```
-.
+```text
+Development/animated-gradient-text-starter/
 ├── src/
 │   ├── components/
 │   ├── App.tsx
@@ -72,27 +37,49 @@ A simple starter project demonstrating how to implement animated gradient text e
 
 ---
 
-## Dependencies
+## 如何執行 | How to Run
+
+1. **安裝相依套件 | Install dependencies**
+   ```bash
+   npm install
+   ```
+
+2. **啟動開發伺服器 | Start development server**
+   ```bash
+   npm run dev
+   ```
+
+3. **在瀏覽器開啟 | Open in browser**
+   ```
+   http://localhost:3000
+   ```
+
+---
+
+## 相依項目 | Dependencies
 
 - TypeScript
-- CSS (animation and gradient effects)
-- JavaScript/Next.js
+- CSS（動畫與漸層效果 | animation and gradient effects）
+- Next.js
 
 ---
 
-## Contributing
+## 輸出與展示 | Outputs and Demos
 
-Pull requests and issues are welcome!
+### 預覽 | Preview
 
----
-
-## License
-
-MIT License
+![animated-gradient-text-preview](./assets/preview.gif)
 
 ---
 
-## Related Links
+## 注意事項 | Notes and Limitations
 
-- [Project Catalog](../../catalog/index.md)
-- [Repository Root](../../README.md)
+- 適合用於作品集、學習或前端專案模板參考。Suitable for portfolios, learning, or frontend project templates.
+- CSS 動態漸層文字效果示範。CSS-based animated gradient text effects demonstration.
+
+---
+
+## 相關連結 | Related Links
+
+- [專案 Catalog | Project Catalog](../../catalog/index.md)
+- [Repository 根目錄 | Repository Root](../../README.md)
