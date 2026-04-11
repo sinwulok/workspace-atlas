@@ -46,7 +46,7 @@ For complete project listings and metadata, see:
 研究型專案，包含資料科學、機器學習、預測模型與學術實驗性質的內容。  
 Research projects including data science, machine learning, forecasting models, and academic or experimental work.
 
-- **cnogb-bond-signal-anomaly** — 使用 Transformer 模型進行債券預測與異常偵測。Bond forecasting and anomaly detection using Transformer models.
+- **cnpbb-abnormal-drift** — 使用 Transformer 模型進行債券預測與異常偵測。Bond forecasting and anomaly detection using Transformer models.
 - **machine-learning-applications-in-fmri** — 功能性 MRI 資料的機器學習應用研究。Machine learning applications for fMRI analysis.
 - **e-learning-fa-ipy** — 使用 Jupyter Notebook 進行電子學習資料分析。E-learning data analysis using Jupyter notebooks.
 
@@ -112,7 +112,7 @@ cd workspace-atlas
 
 # 只取得所需資料夾（範例）
 # Fetch only the folder you need (example)
-git sparse-checkout set Research/cnogb-bond-signal-anomaly
+git sparse-checkout set Research/cnpbb-abnormal-drift
 
 # 可選：切換分支
 # Optionally checkout another branch
@@ -125,7 +125,7 @@ git checkout <branch>
 Suitable for public GitHub repos, returns a plain folder without .git.
 
 ```bash
-svn export https://github.com/sinwulok/workspace-atlas/trunk/Research/cnogb-bond-signal-anomaly
+svn export https://github.com/sinwulok/workspace-atlas/trunk/Research/cnpbb-abnormal-drift
 ```
 
 ### 方法三：下載 ZIP 並解壓縮 | Method 3: Download ZIP and extract specific folder
@@ -135,7 +135,7 @@ Download a snapshot of the entire repository (larger), then extract only the nee
 
 ```bash
 curl -L -o repo.zip https://github.com/sinwulok/workspace-atlas/archive/refs/heads/main.zip
-unzip repo.zip "workspace-atlas-main/Research/cnogb-bond-signal-anomaly/*" -d extracted
+unzip repo.zip "workspace-atlas-main/Research/cnpbb-abnormal-drift/*" -d extracted
 ```
 
 ### 方法四：GitHub CLI | Method 4: GitHub CLI
@@ -143,7 +143,7 @@ unzip repo.zip "workspace-atlas-main/Research/cnogb-bond-signal-anomaly/*" -d ex
 ```bash
 gh repo clone sinwulok/workspace-atlas -- --filter=blob:none --sparse
 cd workspace-atlas
-git sparse-checkout set Research/cnogb-bond-signal-anomaly
+git sparse-checkout set Research/cnpbb-abnormal-drift
 ```
 
 ---

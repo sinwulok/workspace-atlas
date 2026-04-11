@@ -1,4 +1,4 @@
-# cnogb-bond-signal-anomaly
+# cnpbb-abnormal-drift
 
 使用 Transformer 模型進行債券預測與異常偵測。  
 Bond forecasting and anomaly detection using Transformer models with weighted feature extraction.
@@ -24,7 +24,7 @@ A bond interest rate forecasting demonstration built with Transformer Encoder an
 ## 結構 | Structure
 
 ```text
-Research/cnogb-bond-signal-anomaly/
+Research/cnpbb-abnormal-drift/
 ├── img/                    # 結果視覺化 | Result visualizations
 ├── notebooks/              # Jupyter Notebook 檔案 | Jupyter notebooks
 └── README.md               # 本文件 | This file

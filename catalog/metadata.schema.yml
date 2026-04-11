@@ -9,7 +9,7 @@ fields:
     type: string
     required: true
     description: 相對於 repository 根目錄的專案路徑。Project path relative to repository root.
-    example: "Research/cnogb-bond-signal-anomaly"
+    example: "Research/cnpbb-abnormal-drift"
 
   category:
     type: string

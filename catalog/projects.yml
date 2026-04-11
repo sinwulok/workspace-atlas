@@ -4,8 +4,8 @@
 
 projects:
   # Research Projects
-  cnogb-bond-signal-anomaly:
-    path: Research/cnogb-bond-signal-anomaly
+  cnpbb-abnormal-drift:
+    path: Research/cnpbb-abnormal-drift
     category: Research
     type: Transformer | Forecasting | Anomaly
     description: Bond forecasting and anomaly detection using Transformer models with weighted feature extraction.

@@ -19,7 +19,7 @@ This catalog provides a complete listing and classification of all projects in t
 研究型專案，包含資料科學、機器學習、預測模型與學術實驗性質的內容。  
 Research projects including data science, machine learning, forecasting models, and academic or experimental work.
 
-- **cnogb-bond-signal-anomaly** — 使用 Transformer 模型進行債券預測與異常偵測。Bond forecasting and anomaly detection using Transformer models.
+- **cnpbb-abnormal-drift** — 使用 Transformer 模型進行債券預測與異常偵測。Bond forecasting and anomaly detection using Transformer models.
 - **machine-learning-applications-in-fmri** — 功能性 MRI 資料的機器學習應用研究。Machine learning applications for fMRI analysis.
 - **e-learning-fa-ipy** — 使用 Jupyter Notebook 進行電子學習資料分析。E-learning data analysis using Jupyter notebooks.
 
