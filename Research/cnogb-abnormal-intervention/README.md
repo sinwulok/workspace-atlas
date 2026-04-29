@@ -25,7 +25,7 @@ A bond interest rate forecasting demonstration built with Transformer Encoder an
 
 ```text
 Research/cnogb-abnormal-intervention/
-├── img/                    # 結果視覺化 | Result visualizations
+├── assets/                    # 結果視覺化 | Result visualizations
 ├── notebooks/              # Jupyter Notebook 檔案 | Jupyter notebooks
 └── README.md               # 本文件 | This file
 ```
@@ -42,8 +42,8 @@ Research/cnogb-abnormal-intervention/
 2. 執行 Jupyter Notebook 以運行預測模型。  
    Run the Jupyter notebooks to execute the forecasting model.
 
-3. 在 `img/` 目錄查看結果。  
-   View results in the `img/` directory.
+3. 在 `assets/` 目錄查看結果。  
+   View results in the `assets/` directory.
 
 ---
 
@@ -62,19 +62,19 @@ Research/cnogb-abnormal-intervention/
 ### 模型結果 | Model Results
 
 #### 預測資料圖 | Data with Predictions
-![Data with Predictions](img/data_B_with_predictions.png)
+![Data with Predictions](assets/data_B_with_predictions.png)
 
 #### 特徵重要性 | Feature Importance
-![Feature Importance Plot](img/feature_importance_plot.png)
+![Feature Importance Plot](assets/feature_importance_plot.png)
 
 #### MC Dropout 不確定性 | MC Dropout Uncertainty
-![MC Dropout Uncertainty Plot](img/mc_dropout_uncertainty_plot.png)
+![MC Dropout Uncertainty Plot](assets/mc_dropout_uncertainty_plot.png)
 
 #### 殘差分布 | Residuals Distribution
-![Residuals Distribution Histogram](img/residuals_distribution_hist.png)
+![Residuals Distribution Histogram](assets/residuals_distribution_hist.png)
 
 #### 殘差 vs 預測值 | Residuals vs Predicted
-![Residuals vs Predicted Scatter Plot](img/residuals_vs_predicted_scatter.png)
+![Residuals vs Predicted Scatter Plot](assets/residuals_vs_predicted_scatter.png)
 
 ---
 
