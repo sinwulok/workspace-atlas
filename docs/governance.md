@@ -13,7 +13,7 @@
 
 ### 新增專案
 
-1. 確定專案類別（Research / Development / Other）
+1. 確定專案類別（`research/` / `development/` / `other/`）
 2. 在對應目錄下建立專案資料夾
 3. 更新 `catalog/projects.yml` 新增專案 metadata
 4. 在專案內建立基本 README
